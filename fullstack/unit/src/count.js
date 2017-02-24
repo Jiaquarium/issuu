@@ -1,4 +1,3 @@
-
 module.exports = {
     count : function (start, end) {
       let i = start;
@@ -12,7 +11,7 @@ module.exports = {
       // give reference to intervalID through closure
       let cancel = function () {
         clearInterval(intervalID);
-      }
+      };
       return {
         cancel : function() {
           cancel(intervalID)
