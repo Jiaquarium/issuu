@@ -1,3 +1,10 @@
+# Dependencies and how to use
+```
+python cubes.py problems.txt
+```
+>Note:
+Ensure python 2.7 is installed
+
 # Implementation exercise
 
 You are given a box with integer dimensions length x width x height. You also have a set of cubes whose sides are powers of 2, e.g. 1x1x1, 2x2x2, 4x4x4 etc.
