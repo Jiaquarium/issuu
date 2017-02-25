@@ -1,17 +1,16 @@
-# Essay Question Response - CheckSums
+# Essay Question Response - Checksums
 
-## Basic Requirements
 ### Main Components
 - Publishing server
 - Checksum microservice
-- In-memory cache (e.g. Redis)
+- In-memory cache
 - Index DB
 
 ### System Design Overview
 The most effective way to store the set of checksums is through a combination of using an in-memory caching server and an index database.
 
 ### Checksum Microservice, Cache and Index DB
-Client will send a POST to Issuu's publishing web server which will then communicate to the checksum microservice that will handle computing a checksum for the uploaded PDF and then check for duplicate checksums. We can use an in-memory cache such as Redis for very quick/cheap lookups (discussion of lifecycle considerations of cache below) for processed checksums. The service can check against the cache and if the checksum exists we know it's a duplicate and we can then send a 400 HTTP status code response back to the client.
+Client will send a POST to Issuu's publishing web server which will then communicate to the checksum microservice that will handle computing a checksum for the uploaded PDF and then check for duplicate checksums. We can use an in-memory cache such as Redis for very quick/cheap lookups (discussion of lifecycle considerations of cache below) for processed checksums. Redis specifically uses hash table-like data structures and provides for O(1) key lookups. The service can check against the cache and if the checksum exists we know it's a duplicate and we can then send a 400 HTTP status code response back to the client.
 
 If the checksum is not readily in the cache, then we'll check the index database. The index database can be implemented using a RDBMS such as Postgres or MySQL and will be indexed based on checksum for lookup. Upon saving an entry, we'll update the cache for the new checksum. The microservice should also notify the main publishing server to accept the incoming document and save all relevant information into a main database, aside from this checksums process, which can be handled elsewhere. The publishing server can then send a 201 response back to the user in this case.
 
