@@ -42,7 +42,7 @@ x 30
 
 Approximately 7.9 GB/mo is would be needed per month. With this in mind we could and given that magazines, catalogs, newspapers and other publishings may become more irrelevant with time, say 3 months, thats ~24 GB needed for a 3-month period if we wanted to preserve ultra-fast lookup for duplicates. 
 
-Given that we'd have to store 10^10 strings (assuming its 10^10 strings/month), then 10^10 * 65 bits = 81.25 GB/mo would be ~244 GB for 3-months of cached checksums. And for 10^12 * 65 bits = 8.125 TB or ~24 TB for the 3-month period. In both these cases. We definitely wouldn't be able to store this on one machine so would consider distributed caching across multiple machines. 
+Given that we'd have to store 10^10 strings (assuming its 10^10 strings/month), then 10^10 * 65 bits = 81.25 GB/mo would be ~244 GB for 3-months of cached checksums. And for 10^12 * 65 bits = 8.125 TB or ~24 TB for the 3-month period. In both these cases. We definitely wouldn't be able to store this on one machine so we can consider distributed caching across multiple machines. Also, we should decide on a cap for memory allocation to the cache and remove the oldest entries/implement an LRU cache.
 
 #### DCMA Flagged Documents
 A similar process can be implemented where we store all DCMA documents in an in-memory cache to compare checksums as well. This would be updated, instead of by publishers, by Issuu administrators.
