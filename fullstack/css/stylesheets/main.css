@@ -149,6 +149,7 @@ li ul li {
 ul li ul {
   visibility: hidden;
   opacity: 0;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.3);
 
   -webkit-transition: visibility .2s, opacity .2s linear;
   transition: visibility .2s, opacity .2s linear;
@@ -188,8 +189,8 @@ ul li:hover > ul {
     nav > ul > li {
       border-left: 0;
       border-right: 0;
-      border-top: 1px solid #1D5884;
-      border-bottom: 1px solid #54A2C9;
+      border-top: 1px solid #54A2C9;
+      border-bottom: 1px solid #1D5884;
     }
     span {
       right: 10px;
