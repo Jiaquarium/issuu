@@ -1,0 +1,197 @@
+/*
+  ========================================
+  RESET -- http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  ========================================
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  ========================================
+  Navigation Bar
+  ========================================
+*/
+nav {
+  text-align: center;
+}
+
+/* Main links */
+ul {
+  list-style-type: none;
+  padding-top: 25px;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+li {
+  background-color: #0C86BE;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+
+li:hover {
+  background-color: #0D95D3;
+}
+
+nav > ul > li:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+nav > ul > li:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+nav > ul > li:not(:first-child) {
+  border-left: 1.5px solid #1D5884;
+  box-shadow:inset 1px 0 0 0 #54A2C9;
+}
+
+nav > ul > li {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  /*display: relative;*/
+  margin-right: -5px; /* adjusts for white space in inline-block w/o messing with html */
+  padding: 15px;
+  height: 15px;
+}
+
+span {
+  background-color: #40B301;
+  float: right;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: .7em;
+  font-weight: bold;
+  position: absolute;
+  right: -6;
+  top: -6;
+  z-index: 999999;
+  transform: translate(40px) rotate(16deg);
+  transform-origin: 0 -130px;
+}
+
+/* Sublist */
+li ul {
+  margin-top: 14px;
+  padding-top: 0px;
+  text-align: center;
+  border: 1.5px solid #1D5884;
+  width: 100%;
+  position: relative;
+}
+
+li:nth-child(5) ul {
+  margin-left: -129px;
+  margin-right: -100px;
+  min-width: 230px;
+}
+
+li:nth-child(6) ul {
+  min-width: 100%;
+  position: absolute;
+  margin-left: -16px;
+}
+
+li ul li {
+  padding: 15px 0 15px 0;
+}
+
+ul li ul {
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: visibility .2s, opacity .2s linear;
+  transition: visibility .2s, opacity .2s linear;
+  transition-delay: .5s;
+}
+
+ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transition: visibility 0s, opacity .2s linear; /* Safari and Chrome */
+  transition: visibility 0s, opacity .2s linear;
+}
+
+.submenu > a:after {
+  padding-left: 5px;
+  content: ' \25BC';
+  font-size: 10px;
+  transform: scale(2, .5);
+}
+
+/* Responsive Effects */
+@media only screen and (max-width: 728px) {
+    .submenu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 407px) {
+    nav > ul > li {
+        display: block;
+    }
+    nav > ul > li:first-child,
+    nav > ul > li:last-child {
+      border-radius: 0 0 0 0;
+    }
+    nav > ul > li {
+      border-left: 0;
+      border-right: 0;
+      border-top: 1px solid #1D5884;
+      border-bottom: 1px solid #54A2C9;
+    }
+    span {
+      right: 10px;
+    }
+}
